@@ -15,7 +15,7 @@ import (
 
 func main() {
 	router := gin.Default()
-	router.LoadHTMLGlob("templates/*")
+	router.LoadHTMLGlob("templates1/*")
 
 	router.GET("/", func(c *gin.Context) {
 		sha := getCommitSha()
@@ -35,10 +35,12 @@ func main() {
 	})
 
 	router.Run()
+
 }
 
 func getCommitSha() string {
 	content, err := ioutil.ReadFile("sha.txt")
+
 	if err != nil {
 		log.Fatal(err)
 	}
